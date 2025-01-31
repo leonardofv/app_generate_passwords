@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useIsFocused } from '@react-navigation/native';
 import useStorage from '../../hooks/useStorage';
@@ -26,20 +26,24 @@ export function Passwords() {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <View style={styles.header}>
-                <Text style={styles.title}>Minhas Senhas</Text>
-            </View>
-            <View style={styles.content}>
-                <FlatList 
-                    style={{ flex: 1, paddingTop: 14 }}
-                    data={listPasswords}
-                    keyExtractor={(item) => String(item)}
-                    renderItem={({ item }) => <PasswordItem data={item} removePassword={() => deletePassword(item)} />}
+            <SafeAreaView style={{ flex: 1 }}>
+                <StatusBar
+                    backgroundColor={'#392de9'}
+                    barStyle={'light-content'}
                 />
-            </View>
-        </SafeAreaView>
-    );
+                <View style={styles.header}>
+                    <Text style={styles.title}>Minhas Senhas</Text>
+                </View>
+                <View style={styles.content}>
+                    <FlatList 
+                        style={{ flex: 1, paddingTop: 14 }}
+                        data={listPasswords}
+                        keyExtractor={(item) => String(item)}
+                        renderItem={({ item }) => <PasswordItem data={item} removePassword={() => deletePassword(item)} />}
+                    />
+                </View>
+            </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({

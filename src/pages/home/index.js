@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Modal, StatusBar } from 'react-native';
 import { useState } from 'react';
 import Slider from '@react-native-community/slider';
 import { ModalPassword } from '../../components/modal';
@@ -26,6 +26,11 @@ export function Home() {
 
   return (
     <View style={styles.container}>
+
+      <StatusBar 
+        backgroundColor={'#f3f3ff'}
+        barStyle={'dark-content'}
+      />
 
       <Image
         source={require('../../assets/logo.png')}
