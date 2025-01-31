@@ -7,12 +7,11 @@ const useStorage = () => {
         try {
             const passwords = await AsyncStorage.getItem(key);
             return JSON.parse(passwords) || [];
-
-        }catch(error) {
+        } catch (error) {
             console.log("erro ao buscar", error);
             return [];
         }
-    }
+    };
 
     //salvar um item no storage
     const saveItem = async (key, value) => {
@@ -29,22 +28,17 @@ const useStorage = () => {
     }
 
     //remover um item do storage
-    const removeItem = async (key, item) => {
+    const removeItem = async (key, value) => {
         try {
-            let passwords = await getItems(key);
-
-            myPasswords = passwords.filter( (password) => {
-                return (password !== item);
-            } )
-
-            await AsyncStorage.setItem(key, JSON.stringify(myPasswords));
-            return myPasswords;
-
-
-        }catch(error) {
+            let passwords = await getItem(key);
+            passwords = passwords.filter(item => item !== value);
+            await AsyncStorage.setItem(key, JSON.stringify(passwords));
+            return passwords;
+        } catch (error) {
             console.log("Erro ao remover", error);
+            return [];
         }
-    }
+    };
 
     return {
         getItem,
