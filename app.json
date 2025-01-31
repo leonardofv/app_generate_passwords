@@ -4,7 +4,7 @@
     "slug": "gerador",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -17,12 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/adaptive-logo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.leonardo_fonteles.gerador_senhas"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6672d57d-9194-40a6-9e79-a93b9354a0ed"
+      }
     }
   }
 }
